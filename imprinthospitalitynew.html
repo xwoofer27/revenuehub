@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprint Hospitality | Premier Hotel Revenue Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f8f8f8;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            z-index: 1002;
+            transition: all 0.3s ease;
+        }
+
+        .logo-main {
+            font-size: 34px;
+            font-weight: 800;
+            color: #0c3c78;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-main::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #0c3c78, #ff6b35);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom right;
+        }
+
+        .logo:hover .logo-main::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .logo-tagline {
+            font-size: 12px;
+            color: #ff6b35;
+            letter-spacing: 3px;
+            margin-top: 2px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0c3c78, #ff6b35);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0c3c78;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #0c3c78;
+            cursor: pointer;
+            z-index: 1002;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(12, 60, 120, 0.9) 0%, rgba(20, 86, 168, 0.9) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
+            animation: pulse 8s infinite alternate;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b35, #ff8e53);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Floating Info Divs */
+        .floating-info {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            backdrop-filter: blur(10px);
+            z-index: 5;
+            animation: float 6s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-info h4 {
+            color: #0c3c78;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .floating-info p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .info-1 {
+            top: 20%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .info-2 {
+            top: 60%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        .info-3 {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        /* Full Width Zoom Carousel */
+        .zoom-carousel-section {
+            padding: 100px 0 0;
+            background-color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: #0c3c78;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0c3c78, #ff6b35);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 25px auto 0;
+            font-size: 1.1rem;
+        }
+
+        .full-width-carousel {
+            width: 100%;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-carousel {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 100%;
+            width: 100%;
+        }
+
+        .zoom-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .zoom-slide:hover {
+            transform: scale(1.05);
+        }
+
+        .zoom-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
+            transition: opacity 0.5s ease;
+        }
+
+        .zoom-slide:hover::after {
+            opacity: 0.9;
+        }
+
+        /* FIXED: Slide Content for Better Mobile Visibility */
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: white;
+            z-index: 3;
+            padding: 60px 80px;
+            text-align: left;
+            animation: fadeInUp 0.8s ease;
+            transition: transform 0.5s ease;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+        }
+
+        .zoom-slide:hover .slide-content {
+            transform: translateY(-10px);
+        }
+
+        .slide-content h3 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+            display: block;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            padding-bottom: 50px;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .indicator.active {
+            background: #0c3c78;
+            transform: scale(1.2);
+        }
+
+        .indicator.active::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #0c3c78;
+            left: -3px;
+            top: -3px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+        }
+
+        .services-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(12, 60, 120, 0.1) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 5px solid #0c3c78;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0c3c78, #ff6b35);
+            top: 0;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, #f0f7ff, #e1ecff);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #0c3c78;
+            font-size: 38px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, #0c3c78, #1c6fd6);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #0c3c78;
+        }
+
+        /* Testimonials Slider */
+        .testimonials-section {
+            padding: 100px 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-slider-container {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f9f9f9, #f0f7ff);
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 80px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(12, 60, 120, 0.1);
+            position: absolute;
+            font-family: serif;
+            font-weight: bold;
+        }
+
+        .testimonial-text::before {
+            top: -40px;
+            left: -40px;
+        }
+
+        .testimonial-text::after {
+            bottom: -70px;
+            right: -40px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .client-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0c3c78, #1c6fd6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .client-details h4 {
+            color: #0c3c78;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .client-details p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .testimonial-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-indicator.active {
+            background: #0c3c78;
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0c3c78 0%, #1c6fd6 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(90deg, #ff6b35, #ff8e53);
+            font-size: 1.3rem;
+            padding: 20px 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a1f3d;
+            color: #ccc;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #ff6b35;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff6b35;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: #ff6b35;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(10px) rotate(-1deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive Styles - FIXED MOBILE TEXT VISIBILITY */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .full-width-carousel {
+                height: 600px;
+            }
+
+            .slide-content {
+                padding: 50px 60px;
+            }
+
+            .slide-content h3 {
+                font-size: 2.5rem;
+            }
+
+            .floating-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+
+            .full-width-carousel {
+                height: 550px;
+            }
+
+            .slide-content {
+                padding: 40px 50px;
+            }
+
+            .slide-content h3 {
+                font-size: 2.2rem;
+            }
+
+            .slide-content p {
+                font-size: 1.2rem;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .testimonial-slide {
+                padding: 0 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 0;
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: all 0.4s ease;
+                z-index: 1001;
+                visibility: hidden;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 0;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            /* FIXED: Mobile Carousel Text Visibility */
+            .full-width-carousel {
+                height: 500px;
+            }
+
+            .slide-content {
+                padding: 30px 25px;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+            }
+
+            .slide-content h3 {
+                font-size: 1.9rem;
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+
+            .slide-content p {
+                font-size: 1.05rem;
+                line-height: 1.5;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+
+            .slide-stats {
+                gap: 25px;
+                margin-top: 20px;
+            }
+
+            .stat {
+                min-width: 100px;
+            }
+
+            .stat-value {
+                font-size: 1.9rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .testimonial-slide {
+                padding: 0 30px;
+            }
+
+            .testimonial-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .full-width-carousel {
+                height: 450px;
+            }
+
+            .slide-content {
+                padding: 25px 20px;
+            }
+
+            .slide-content h3 {
+                font-size: 1.7rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .slide-stats {
+                gap: 20px;
+                justify-content: space-between;
+            }
+
+            .stat {
+                min-width: 80px;
+            }
+
+            .stat-value {
+                font-size: 1.7rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .cta-button,
+            .cta-button.secondary {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+
+            .section-title h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-slide {
+                padding: 0 20px;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+
+            .client-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .full-width-carousel {
+                height: 420px;
+            }
+
+            .slide-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .slide-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .stat {
+                min-width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+                margin-right: 15px;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <span class="logo-main">Imprint Hospitality</span>
+                    <span class="logo-tagline">REVENUE OPTIMIZATION</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#carousel">Success Stories</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Revolutionizing Hotel Revenue Management</h1>
+                <p>Imprint Hospitality delivers cutting-edge revenue optimization solutions powered by AI and deep
+                    industry expertise. Maximize profitability and outperform competitors with our data-driven
+                    strategies.</p>
+                <a href="#contact" class="cta-button">Schedule Your Free Revenue Audit</a>
+            </div>
+        </div>
+
+        <!-- Floating Info Divs -->
+        <div class="floating-info info-1">
+            <h4><i class="fas fa-chart-line"></i> Revenue Growth</h4>
+            <p>Average 35% increase in annual revenue for our hotel partners through strategic pricing optimization.</p>
+        </div>
+
+        <div class="floating-info info-2">
+            <h4><i class="fas fa-award"></i> Industry Recognition</h4>
+            <p>Voted "Best Revenue Management Solution" by Hospitality Tech Awards for 3 consecutive years.</p>
+        </div>
+
+        <div class="floating-info info-3">
+            <h4><i class="fas fa-hotel"></i> Global Presence</h4>
+            <p>Currently managing revenue for over 450 hotels across 28 countries worldwide.</p>
+        </div>
+    </section>
+
+    <!-- Full Width Zoom Carousel -->
+    <section class="zoom-carousel-section" id="carousel">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transforming Hospitality Revenue</h2>
+                <p>Discover how our innovative solutions have revolutionized revenue management for hotels of all sizes
+                    and categories.</p>
+            </div>
+        </div>
+
+        <div class="full-width-carousel">
+            <div class="zoom-carousel" id="zoomCarousel">
+                <div class="zoom-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="slide-content">
+                        <h3>Luxury Resort Chain Transformation</h3>
+                        <p>Implemented a comprehensive revenue management system across 12 luxury resorts, achieving a
+                            42% increase in RevPAR within 18 months.</p>
+                        <div class="slide-stats">
+                            <div class="stat">
+                                <span class="stat-value">42%</span>
+                                <span class="stat-label">RevPAR Growth</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">28%</span>
+                                <span class="stat-label">Occupancy Increase</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">$8.2M</span>
+                                <span class="stat-label">Additional Revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zoom-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="slide-content">
+                        <h3>Urban Boutique Hotel Success</h3>
+                        <p>Revolutionized pricing strategy for a 5-star boutique hotel in competitive markets, resulting
+                            in 37% higher ADR and improved direct booking ratio.</p>
+                        <div class="slide-stats">
+                            <div class="stat">
+                                <span class="stat-value">37%</span>
+                                <span class="stat-label">ADR Increase</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">65%</span>
+                                <span class="stat-label">Direct Bookings</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">4.9</span>
+                                <span class="stat-label">Guest Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zoom-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="slide-content">
+                        <h3>International Expansion Strategy</h3>
+                        <p>Developed and executed a global revenue optimization strategy for a hotel group expanding
+                            into 3 new international markets simultaneously.</p>
+                        <div class="slide-stats">
+                            <div class="stat">
+                                <span class="stat-value">41%</span>
+                                <span class="stat-label">Profitability Boost</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">New Markets</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">18</span>
+                                <span class="stat-label">Months ROI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zoom-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                    <div class="slide-content">
+                        <h3>All-Inclusive Resort Optimization</h3>
+                        <p>Transformed revenue management for a Caribbean all-inclusive resort, increasing ancillary
+                            revenue by 58% while maintaining high guest satisfaction.</p>
+                        <div class="slide-stats">
+                            <div class="stat">
+                                <span class="stat-value">58%</span>
+                                <span class="stat-label">Ancillary Revenue</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">92%</span>
+                                <span class="stat-label">Occupancy Rate</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">4.8</span>
+                                <span class="stat-label">Satisfaction Score</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="carousel-indicators" id="carouselIndicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Services</h2>
+                <p>We offer end-to-end revenue management solutions designed to address every aspect of hotel
+                    profitability in today's dynamic market.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Pricing</h3>
+                    <p>Our machine learning algorithms analyze millions of data points to optimize room rates in
+                        real-time based on demand, competition, and market conditions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Advanced forecasting models that anticipate market trends, demand patterns, and booking behaviors
+                        to enable proactive revenue strategies.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Market Intelligence</h3>
+                    <p>Comprehensive competitive analysis and market benchmarking to maintain your strategic advantage
+                        in local and global markets.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Distribution Strategy</h3>
+                    <p>Optimize your presence across all online channels with intelligent channel management to maximize
+                        visibility and direct bookings.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Revenue Culture Training</h3>
+                    <p>Transform your team's mindset with comprehensive training programs that build revenue management
+                        expertise across all departments.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Customized dashboards, detailed reporting, and KPI tracking that provide actionable insights to
+                        continuously improve performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Success Stories</h2>
+                <p>Hear from hoteliers who have transformed their revenue performance with Imprint Hospitality.</p>
+            </div>
+        </div>
+
+        <div class="testimonials-slider-container">
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        "Imprint Hospitality completely transformed our revenue management approach. Their AI-driven
+                        pricing strategy increased our annual revenue by 42% while maintaining our brand integrity and
+                        guest satisfaction scores. The team's expertise is unparalleled."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">MR</div>
+                        <div class="client-details">
+                            <h4>Michael Rodriguez</h4>
+                            <p>CEO, Luxe Hotel Group</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        "After implementing Imprint Hospitality's revenue management system, we saw an immediate 28%
+                        increase in occupancy and a 37% boost in ADR. Their predictive analytics have given us a
+                        competitive edge we never thought possible."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">SJ</div>
+                        <div class="client-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>VP of Operations, Urban Boutique Hotels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        "The ROI from Imprint Hospitality's services was achieved in just 18 months. Their market
+                        intelligence and distribution strategy helped us expand into 3 new international markets
+                        successfully. A truly game-changing partnership."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">TW</div>
+                        <div class="client-details">
+                            <h4>Thomas Williams</h4>
+                            <p>Managing Director, Global Hotel Ventures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        "Working with Imprint Hospitality was the best decision we made. Their team trained our staff,
+                        implemented advanced revenue strategies, and helped us increase ancillary revenue by 58%. Guest
+                        satisfaction scores actually improved alongside profitability."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">EC</div>
+                        <div class="client-details">
+                            <h4>Emma Chen</h4>
+                            <p>General Manager, Caribbean Resorts International</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-indicators" id="testimonialIndicators">
+                <div class="testimonial-indicator active" data-slide="0"></div>
+                <div class="testimonial-indicator" data-slide="1"></div>
+                <div class="testimonial-indicator" data-slide="2"></div>
+                <div class="testimonial-indicator" data-slide="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Revolutionize Your Hotel's Revenue?</h2>
+            <p>Join over 450 hotels worldwide that have transformed their profitability with our cutting-edge revenue
+                management solutions. Schedule your complimentary revenue audit today.</p>
+            <a href="#contact" class="cta-button secondary">Get Your Free Revenue Audit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Imprint Hospitality</h3>
+                    <p>Leading the hospitality industry in revenue optimization through innovation, expertise, and
+                        cutting-edge technology solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#carousel">Success Stories</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">AI-Powered Pricing</a></li>
+                        <li><a href="#">Predictive Analytics</a></li>
+                        <li><a href="#">Market Intelligence</a></li>
+                        <li><a href="#">Distribution Strategy</a></li>
+                        <li><a href="#">Revenue Training</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 500 Hospitality Plaza, Suite 1200</li>
+                        <li><i class="fas fa-phone"></i> +1 (888) 452-1890</li>
+                        <li><i class="fas fa-envelope"></i> solutions@imprinthospitality.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Imprint Hospitality. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (navLinks.classList.contains('active') &&
+                !navLinks.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Full Width Zoom Carousel Functionality
+        const zoomCarousel = document.getElementById('zoomCarousel');
+        const zoomSlides = document.querySelectorAll('.zoom-slide');
+        const carouselIndicators = document.querySelectorAll('#carouselIndicators .indicator');
+
+        let currentCarouselSlide = 0;
+        const totalCarouselSlides = zoomSlides.length;
+
+        // Initialize main carousel
+        function updateCarousel() {
+            zoomCarousel.style.transform = `translateX(-${currentCarouselSlide * 100}%)`;
+
+            // Update indicators
+            carouselIndicators.forEach((indicator, index) => {
+                if (index === currentCarouselSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+
+            // Add animation to slide content
+            const currentSlideContent = zoomSlides[currentCarouselSlide].querySelector('.slide-content');
+            currentSlideContent.style.animation = 'none';
+            setTimeout(() => {
+                currentSlideContent.style.animation = 'fadeInUp 0.8s ease';
+            }, 10);
+        }
+
+        // Indicator click for main carousel
+        carouselIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentCarouselSlide = index;
+                updateCarousel();
+                resetCarouselInterval();
+            });
+        });
+
+        // Auto slide every 6 seconds
+        let carouselInterval = setInterval(() => {
+            currentCarouselSlide = (currentCarouselSlide + 1) % totalCarouselSlides;
+            updateCarousel();
+        }, 6000);
+
+        // Reset interval when user interacts
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                currentCarouselSlide = (currentCarouselSlide + 1) % totalCarouselSlides;
+                updateCarousel();
+            }, 6000);
+        }
+
+        // Pause auto-slide on hover
+        const carouselContainer = document.querySelector('.full-width-carousel');
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            resetCarouselInterval();
+        });
+
+        // Add zoom effect on mouse position for main carousel
+        zoomSlides.forEach(slide => {
+            slide.addEventListener('mousemove', (e) => {
+                const rect = slide.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                slide.style.backgroundPosition = `${x}% ${y}%`;
+                slide.style.transform = 'scale(1.05)';
+            });
+
+            slide.addEventListener('mouseleave', () => {
+                slide.style.backgroundPosition = 'center';
+                slide.style.transform = 'scale(1)';
+            });
+        });
+
+        // Testimonials Slider Functionality
+        const testimonialsSlider = document.getElementById('testimonialsSlider');
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialIndicators = document.querySelectorAll('#testimonialIndicators .testimonial-indicator');
+
+        let currentTestimonialSlide = 0;
+        const totalTestimonialSlides = testimonialSlides.length;
+
+        // Initialize testimonials slider
+        function updateTestimonialsSlider() {
+            testimonialsSlider.style.transform = `translateX(-${currentTestimonialSlide * 100}%)`;
+
+            // Update indicators
+            testimonialIndicators.forEach((indicator, index) => {
+                if (index === currentTestimonialSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Indicator click for testimonials
+        testimonialIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentTestimonialSlide = index;
+                updateTestimonialsSlider();
+                resetTestimonialsInterval();
+            });
+        });
+
+        // Auto slide every 8 seconds for testimonials
+        let testimonialsInterval = setInterval(() => {
+            currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
+            updateTestimonialsSlider();
+        }, 8000);
+
+        // Reset testimonials interval when user interacts
+        function resetTestimonialsInterval() {
+            clearInterval(testimonialsInterval);
+            testimonialsInterval = setInterval(() => {
+                currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
+                updateTestimonialsSlider();
+            }, 8000);
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.padding = '';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.getAttribute('href') === '#') return;
+
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCarousel();
+            updateTestimonialsSlider();
+
+            // Add animation to service cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
